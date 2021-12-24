@@ -1,0 +1,131 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	border: none;
+}
+
+body {
+	font-family: sans-serif;
+	padding: 30px;
+}
+
+main {
+	display: grid;
+	align-items: center;
+	grid-template-columns: 500px 1fr;
+	margin: auto;
+}
+
+.kittyList {
+	grid-column: 1;
+}
+
+.view {
+	grid-column: 2;
+}
+
+.kittyPreview {
+	padding: 20px;
+	border: solid black 1px;
+}
+
+.view {
+	margin: auto;
+}
+
+#search {
+	padding: 30px;
+	max-width: 500px;
+	border: solid black 1px;
+}
+
+#search input,
+#search button {
+	padding: 8px;
+	font-size: 15px;
+	border: 1px solid black;
+	margin-right: 15px;
+}
+
+#search input {
+	background: url("http://www.w3.org/2000/svg") top left
+		no-repeat;
+	height: 30px;
+  padding-left: 25px;
+  z-index: 10;
+}
+
+.modal {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+
+	display: grid;
+	grid-template-columns: 1fr, 1fr;
+	align-items: center;
+	justify-content: center;
+
+	backdrop-filter: blur(6px);
+}
+
+.modal .content {
+	width: 480px;
+	padding: 12px;
+	min-height: 200px;
+	background: white;
+	box-shadow: 0 2px 12px -8px black;
+}
+
+.modal input,
+#owner-Select {
+	grid-column: 2;
+	padding: 8px;
+	font-size: 22px;
+	border: 1px solid black;
+	margin-bottom: 10px;
+}
+
+.modal form {
+	display: grid;
+	grid-template-columns: 1fr, 1fr;
+}
+
+.modal label {
+	margin: 12px 0 4px;
+	grid-column: 1;
+}
+
+.actions,
+.closeModal {
+	grid-column: 2;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	padding: 8px;
+	background-color: white;
+	padding-bottom: 15px;
+}
+
+.modal h4 {
+	grid-column: 1;
+	padding-top: 5px;
+}
+
+.updateForm h4,
+.closeModal {
+	border-bottom: 1px solid lightgray;
+	margin-bottom: 10px;
+}
+
+.actions button {
+	background-color: white;
+	margin-right: 5px;
+	margin-left: 5px;
+}
+
+footer {
+	margin-top: 20px;
+}
