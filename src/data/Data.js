@@ -46,10 +46,3 @@ export let allKitties = [
 	},
 ];
 
-export function storeData(list) {
-	localStorage.setItem("kittyList", JSON.stringify(list));
-}
-
-export function retrieveData() {
-	allKitties = JSON.parse(localStorage.getItem("allKitties"));
-}

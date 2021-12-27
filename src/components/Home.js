@@ -1,9 +1,7 @@
-import React, { useEffect } from "react";
-import { storeData, retrieveData, allKitties } from "../data/Data";
+import React, { useState, useEffect } from "react";
 import Modal from "./Modal";
 
 const Home = (props) => {
-
 	const {
 		kittyList,
 		setKittyList,
@@ -11,51 +9,29 @@ const Home = (props) => {
 		setCurrentKitty,
 		filterTerm,
 		showModal,
-    setShowModal,
-    index,
-    setIndex,
+		setShowModal,
+		index,
+		setIndex,
 	} = props;
 
-  useEffect(() => {
-    storeData(kittyList);
-  }, [kittyList]);
+  const [active, setActive] = useState(false);
 
-	function renderKitty(kitty) {
-		return (
-			<>
-				<section className="view">
-					<img
-						src={kitty.thumbnailURL}
-						alt="kitty"
-						width="300"
-						height="300"
-					/>
-					<h3>{kitty.name}</h3>
-					<p> {kitty.birthDate} </p>
-					<p> {kitty.ownerName} </p>
-					<p> {kitty.viewsCount} </p>
-					<footer className="actions">
-						<button className="edit">Edit</button>
-						<span> | </span>
-						<button className="delete">Delete</button>
-					</footer>
-				</section>
-			</>
-		);
-	}
+	useEffect(() => {
+		localStorage.setItem("kittyList", JSON.stringify(kittyList));
+	}, [kittyList]);
 
 	function setCurrent(kitty) {
-		if (currentKitty.id !== kitty.id){
-      kitty.viewsCount += 1;}
-    setCurrentKitty(kitty);
-    let index = kittyList.findIndex((element) => element.name === kitty.name);
-    setIndex(index);
-		renderKitty(kitty);
+		if (currentKitty.id !== kitty.id) {
+			kitty.viewsCount += 1;
+		}
+
+		setCurrentKitty(kitty);
+		let index = kittyList.findIndex((element) => element.name === kitty.name);
+		setIndex(index);
 	}
 
-	function deleteKitty(kitty) {
+	function deleteKitty() {
 		let newKittyList = kittyList.slice();
-		let index = kittyList.findIndex((element) => element.name === kitty.name);
 		newKittyList.splice(index, 1);
 		setKittyList(newKittyList);
 		setCurrentKitty("");
@@ -106,9 +82,7 @@ const Home = (props) => {
 							<p> {currentKitty.birthDate} </p>
 							<p> {currentKitty.ownerName} </p>
 							<p>
-								{" "}
-								Number of Views: {currentKitty.viewsCount}
-								{" "}
+								Number of Views: {currentKitty.viewsCount}{" "}
 								{currentKitty.viewsCount === 1 ? "time" : "times"}
 							</p>
 							<footer className="actions">
@@ -124,12 +98,27 @@ const Home = (props) => {
 								<button
 									className="delete"
 									onClick={() => {
-										deleteKitty(currentKitty);
+										setActive(true);
 									}}
 								>
 									Delete
 								</button>
 							</footer>
+							<div id="delete" className={active ? "active" : "inactive"}>
+								<h3>Are you sure you want to delete {currentKitty.name}?</h3>
+								<button
+                  onClick={(event) => {
+                    event.preventDefault();
+                    deleteKitty();
+                  }}
+                  >Yes</button>
+								<button
+                  onClick={(event) => {
+                    event.preventDefault();
+                    setActive(false);
+                  }}
+                  >No</button>
+							</div>
 						</>
 					) : (
 						""
@@ -137,12 +126,12 @@ const Home = (props) => {
 					{showModal ? (
 						<Modal
 							setShowModal={setShowModal}
-              currentKitty={currentKitty}
-              setCurrentKitty={setCurrentKitty}
+							currentKitty={currentKitty}
+							setCurrentKitty={setCurrentKitty}
 							kittyList={kittyList}
-              setKittyList={setKittyList}
-              index={index}
-              setIndex={setIndex}
+							setKittyList={setKittyList}
+							index={index}
+							setIndex={setIndex}
 						/>
 					) : (
 						""

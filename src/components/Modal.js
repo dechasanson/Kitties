@@ -61,7 +61,6 @@ const Modal = (props) => {
 							type="text"
 							id="modalThumbnail"
 							placeholder="Enter URL"
-							// value={newURL}
 							onChange={(event) => setNewURL(event.target.value)}
 						></input>
 						<label>Name</label>
@@ -69,7 +68,6 @@ const Modal = (props) => {
 							type="text"
 							id="modalName"
 							placeholder="Enter Name"
-							// value={newName}
 							onChange={(event) => setNewName(event.target.value)}
 						></input>
 						<label>Birth date</label>
@@ -77,13 +75,11 @@ const Modal = (props) => {
 							type="date"
 							id="modalBirthDate"
 							placeholder="Enter Birth Date"
-							// value={newBirthDate}
 							onChange={(event) => setNewBirthDate(event.target.value)}
 						></input>
 						<label className="owner-Select">Owner</label>
             <select 
               id="owner-Select" 
-              // value={newOwner} 
               onChange={(event) => setNewOwner(event.target.value)}
             >
 							<option>Select</option>

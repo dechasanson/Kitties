@@ -2,7 +2,7 @@
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
-	border: none;
+  border: none;
 }
 
 body {
@@ -44,16 +44,17 @@ main {
 #search button {
 	padding: 8px;
 	font-size: 15px;
-	border: 1px solid black;
-	margin-right: 15px;
 }
 
-#search input {
-	background: url("http://www.w3.org/2000/svg") top left
-		no-repeat;
-	height: 30px;
-  padding-left: 25px;
-  z-index: 10;
+.wrappedFilter {
+  border: 1px solid black;
+  padding: 10px;
+  border-radius: 20px;
+  max-width: 500px;
+}
+
+#search button {
+  background-color: white;
 }
 
 .modal {
@@ -128,4 +129,18 @@ main {
 
 footer {
 	margin-top: 20px;
+}
+
+.inactive {
+  display: none;
+}
+
+#delete button {
+  background-color: lightgray;
+  padding: 10px 20px 10px 20px; 
+  margin-right: 10px;
+  margin-top: 10px;
+  font-size: 16px;
+  border: 1px solid black;
+  border-radius: 20px;
 }
