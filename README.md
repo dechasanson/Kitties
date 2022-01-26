@@ -1,5 +1,3 @@
-# React Boilerplate
+# Kitties
 
-Hey, welcome to React.
-
-Run `npm install` first, then `npm run start`.
+This is the kitty project.  Enjoy!
