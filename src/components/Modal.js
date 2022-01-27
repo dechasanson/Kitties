@@ -129,7 +129,8 @@ const Modal = (props) => {
 						<input
 							type="text"
 							id="modalName"
-							placeholder="Enter Name"
+              placeholder="Enter Name"
+              value={newName}
 							onChange={(event) => checkName(event.target.value)}
 						></input>
 						<label>Birth date</label>

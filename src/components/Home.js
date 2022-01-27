@@ -17,17 +17,23 @@ const Home = (props) => {
   const [active, setActive] = useState(false);
 
 	useEffect(() => {
+    console.log("Testing the useEffect");
 		localStorage.setItem("kittyList", JSON.stringify(kittyList));
 	}, [kittyList]);
 
 	function setCurrent(kitty) {
+    let newKittyList = [...kittyList];
+
 		if (currentKitty.id !== kitty.id) {
-			kitty.viewsCount += 1;
+      kitty.viewsCount += 1;
 		}
 
 		setCurrentKitty(kitty);
 		let index = kittyList.findIndex((element) => element.name === kitty.name);
-		setIndex(index);
+    setIndex(index);
+    newKittyList[index] = kitty;
+    setKittyList(newKittyList);
+    setActive(false);
 	}
 
 	function deleteKitty() {
