@@ -1,5 +1,5 @@
 import React from "react";
-import 'font-awesome/css/font-awesome.min.css'; 
+import "font-awesome/css/font-awesome.min.css";
 
 const Search = (props) => {
   const { filterTerm, setFilterTerm } = props;
@@ -13,17 +13,17 @@ const Search = (props) => {
       }}
     >
       <span className="wrappedFilter">
-      <i className="fa fa-search">{"  "}</i>
-      <input
-        id="keywords"
-        type="text"
-        className="search"
-        value={filterTerm}
-        onChange={(event) => {
-          setFilterTerm(event.target.value);
-        }}
-      />
-      <button onClick={() => setFilterTerm("")}>x</button>
+        <i className="fa fa-search">{"  "}</i>
+        <input
+          id="keywords"
+          type="text"
+          className="search"
+          value={filterTerm}
+          onChange={(event) => {
+            setFilterTerm(event.target.value);
+          }}
+        />
+        <button onClick={() => setFilterTerm("")}>x</button>
       </span>
     </form>
   );

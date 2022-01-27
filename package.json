@@ -14,7 +14,8 @@
     "font-awesome": "^4.7.0",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
-    "react-scripts": "^3.4.3"
+    "react-scripts": "^3.4.3",
+    "use-local-storage": "^2.2.6"
   },
   "browserslist": {
     "production": [
