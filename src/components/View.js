@@ -23,7 +23,6 @@ const View = (props) => {
   }
 
   return (
-    <>
       <section className="view">
         {currentKitty ? (
           <>
@@ -96,7 +95,6 @@ const View = (props) => {
           ""
         )}
       </section>
-    </>
   );
 };
 

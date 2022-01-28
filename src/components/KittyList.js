@@ -1,6 +1,3 @@
-//Break out home into smaller components
-//Install React-use npm package for useLocalStorage - replace all local storage with this
-//
 import React from "react";
 
 const KittyList = (props) => {

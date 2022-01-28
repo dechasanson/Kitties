@@ -6,18 +6,12 @@ import Search from "./components/Search";
 import { allKitties } from "./data/Data";
 
 const App = () => {
-  const [item, setItem] = useLocalStorage("kittyList", allKitties)
+  const [kittyList, setKittyList] = useLocalStorage("kittyList", allKitties);
 
   const [filterTerm, setFilterTerm] = useState("");
   const [currentKitty, setCurrentKitty] = useState("");
   const [showModal, setShowModal] = useState(false);
   const [index, setIndex] = useState(-1);
-//   const [kittyList, setKittyList] = useState(() => {
-// 	const saved = localStorage.getItem("kittyList");
-//     const initialValue = JSON.parse(saved);
-//     return initialValue || allKitties;
-//   });
-  const [kittyList, setKittyList] = useState(item || allKitties)
 
   return (
     <>
@@ -34,7 +28,6 @@ const App = () => {
         setShowModal={setShowModal}
         index={index}
         setIndex={setIndex}
-		setItem={setItem}
       />
     </>
   );
